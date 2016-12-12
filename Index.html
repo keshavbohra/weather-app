@@ -4,6 +4,18 @@
 <body>
 <h1>Weather Forecast</h1>
 <p>Please Enter the location to find the forecast of the same<p>
-
+<form>
+City        :<input type="text" id="location" >
+Country Code:<input type="text" id="countCode" >
+<input type="button" value="Check" onclick="getForeCast();">
+</form>
+<p id="demo"></p>
+<script lang=javascript>
+function getForeCast(){
+	var loc = document.getElementById("location").value;
+	var conCode = document.getElementById("countCode").value;
+	document.getElementById("demo").innerHTML = 
+}
+</script>
 </body>
 </html>
