@@ -14,7 +14,19 @@ Country Code:<input type="text" id="countCode" >
 function getForeCast(){
 	var loc = document.getElementById("location").value;
 	var conCode = document.getElementById("countCode").value;
-	document.getElementById("demo").innerHTML = 
+	//document.getElementById("demo").innerHTML = 
+	var url = "api.openweathermap.org/data/2.5/forecast?q="+loc+","+conCode+"&mode=html";
+	//urlParams = parseURLParams(url);
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+	xhr.onreadystatechange = processRequest;
+	xhr.send(null);
+	return 	xhr.responseText;
+}
+function processRequest(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        document.getElementById("demo").innerHTML = xhr.responseText;
+    }
 }
 </script>
 </body>
